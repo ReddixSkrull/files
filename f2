@@ -1,0 +1,8 @@
+$url = "https://raw.githubusercontent.com/ReddixSkrull/files/main/README.md"
+$pathtofile = "$PSScriptRoot\text.txt"
+$output = $pathtofile
+
+
+Invoke-WebRequest -Uri $url -OutFile $output
+while(!(Test-Path $pathtofile)) {Start-Sleep 10}
+Start-Process -Filepath $output 
